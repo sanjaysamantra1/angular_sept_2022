@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-databinding',
+  /* template:`
+    <h1>This is Databinding como</h1>
+  ` */
   templateUrl: './databinding.component.html',
+  // styles:['input{border:1px solid blue;}']
   styleUrls: ['./databinding.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class DatabindingComponent implements OnInit {
   constructor() {}
@@ -24,4 +29,9 @@ export class DatabindingComponent implements OnInit {
   }
   num1: number = 0;
   num2: number = 0;
+
+  addResult: number = 0;
+  addition(val1: any, val2: any) {
+    this.addResult = +val1 + +val2;
+  }
 }

@@ -1,46 +1,64 @@
-<p>databinding works!</p>
+<style>
+  h3 {
+    color: blueviolet;
+  }
+  button {
+    border: 1px solid blue;
+    border-radius: 5px;
+  }
+</style>
+<div class="container">
+  <p>databinding works!</p>
 
-<h3>my name is: {{ name }}</h3>
-<h3>my name is: <span [innerHTML]="name"></span></h3>
+  <h3>my name is: {{ name }}</h3>
+  <h3>my name is: <span [innerHTML]="name"></span></h3>
 
-<img
-  src="https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512__340.jpg"
-  alt=""
-  width="200"
-  height="200"
-/>&nbsp; <img src="{{ flower_img }}" alt="" width="200" height="200" />&nbsp;
-<img [src]="flower_img" alt="" width="200" height="200" />&nbsp;
-<img bind-src="flower_img" alt="" width="200" height="200" />&nbsp;
-<br />
+  <img
+    src="https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512__340.jpg"
+    alt=""
+    width="200"
+    height="200"
+  />&nbsp; <img src="{{ flower_img }}" alt="" width="200" height="200" />&nbsp;
+  <img [src]="flower_img" alt="" width="200" height="200" />&nbsp;
+  <img bind-src="flower_img" alt="" width="200" height="200" />&nbsp;
+  <br />
 
-<input value="sachin" />
-<input value="{{ name }}" />
-<input [value]="name" />
-<input bind-value="name" />
-<input [(ngModel)]="name" />
+  <input value="sachin" />
+  <input value="{{ name }}" />
+  <input [value]="name" />
+  <input bind-value="name" />
+  <input [(ngModel)]="name" />
 
-<br />===================================================================<br />
-<button>Click Me</button>&nbsp;
-<button disabled="{{ flag }}">Click Me</button>&nbsp;
-<button [disabled]="flag">Click Me</button>&nbsp;
-<button bind-disabled="flag">Click Me</button>&nbsp;
-<button class="btn btn-primary" (click)="f1('good evening')">Btn-1</button>
-<button class="btn btn-primary" on-click="f1('good evening')">Btn-1</button>
-<br />===================================================================<br />
+  <br />===================================================================<br />
+  <button>Click Me</button>&nbsp;
+  <button disabled="{{ flag }}">Click Me</button>&nbsp;
+  <button [disabled]="flag">Click Me</button>&nbsp;
+  <button bind-disabled="flag">Click Me</button>&nbsp;
+  <button class="btn btn-primary" (click)="f1('good evening')">Btn-1</button>
+  <button class="btn btn-primary" on-click="f1('good evening')">Btn-1</button>
+  <br />===================================================================<br />
 
-<h1 [hidden]="flag">Helloooooooooooooooooo Hiiiiiiiiiiiiiiiiiiii</h1>
-<button (click)="togglePara()">{{ flag ? "SHOW" : "HIDE" }}</button>
-<br />===================================================================<br />
+  <h1 [hidden]="flag">Helloooooooooooooooooo Hiiiiiiiiiiiiiiiiiiii</h1>
+  <button (click)="togglePara()">{{ flag ? "SHOW" : "HIDE" }}</button>
+  <br />===================================================================<br />
 
-<input type="password" value="Test123" />
-<input type="{{ flag ? 'text' : 'password' }}" value="Test123" />
-<input type="checkbox" (change)="flag = !flag" />
-<span>{{ flag ? "hide" : "show" }} Password</span>
-<br />===================================================================<br />
-<div>Calculator</div>
-<p><input type="number" [(ngModel)]="num1" /></p>
-<p><input type="number" [(ngModel)]="num2" /></p>
-<div>Addition of {{ num1 }} & {{ num2 }} is {{ num1 + num2 }}</div>
-<div>Subtraction of {{ num1 }} & {{ num2 }} is {{ num1 - num2 }}</div>
-<div>Multiplication of {{ num1 }} & {{ num2 }} is {{ num1 * num2 }}</div>
-<div>Division of {{ num1 }} & {{ num2 }} is {{ num1 / num2 }}</div>
+  <input type="password" value="Test123" />
+  <input type="{{ flag ? 'text' : 'password' }}" value="Test123" />
+  <input type="checkbox" (change)="flag = !flag" />
+  <span>{{ flag ? "hide" : "show" }} Password</span>
+  <br />===================================================================<br />
+  <div>Calculator</div>
+  <p><input type="number" [(ngModel)]="num1" /></p>
+  <p><input type="number" [(ngModel)]="num2" /></p>
+  <div>Addition of {{ num1 }} & {{ num2 }} is {{ num1 + num2 }}</div>
+  <div>Subtraction of {{ num1 }} & {{ num2 }} is {{ num1 - num2 }}</div>
+  <div>Multiplication of {{ num1 }} & {{ num2 }} is {{ num1 * num2 }}</div>
+  <div>Division of {{ num1 }} & {{ num2 }} is {{ num1 / num2 }}</div>
+  <br />===================================================================<br />
+  <h3>Template Reference Variable</h3>
+
+  Num1: <input type="number" #val1 />&nbsp; Num2:
+  <input type="number" ref-val2 />
+  <button (click)="addition(val1.value, val2.value)">Add</button>
+  <p style="color: blue">Addition is {{ addResult }}</p>
+</div>
